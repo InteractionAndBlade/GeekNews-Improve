@@ -43,12 +43,15 @@ public class CalendarActivity extends SimpleActivity {
                 .setMaximumDate(CalendarDay.from(DateUtil.getCurrentYear(), DateUtil.getCurrentMonth(), DateUtil.getCurrentDay()))
                 .setCalendarDisplayMode(CalendarMode.MONTHS)
                 .commit();
+//        mDate = CalendarDay.from(DateUtil.getCurrentYear(), DateUtil.getCurrentMonth(), DateUtil.getCurrentDay());
         mCalender.setOnDateChangedListener(new OnDateSelectedListener() {
             @Override
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
                 mDate = date;
             }
         });
+        mCalender.setSelectedDate(CalendarDay.from(DateUtil.getCurrentYear(), DateUtil.getCurrentMonth(), DateUtil.getCurrentDay()));
+//        mCalender.setTileSize(88);
     }
 
     @OnClick(R.id.tv_calender_enter)
