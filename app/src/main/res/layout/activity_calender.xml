@@ -17,12 +17,12 @@
         app:mcv_monthLabels="@array/custom_months"
         />
 
-    <TextView
+   <!-- <TextView
         android:id="@+id/tv_calender_enter"
         android:layout_margin="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="确定"
         android:textColor="@color/colorPrimary"
-        android:layout_gravity="end" />
+        android:layout_gravity="end" />-->
 </LinearLayout>

@@ -36,10 +36,10 @@ public class CalendarActivity extends SimpleActivity {
 
     @Override
     protected void initEventAndData() {
-        setToolBar(mToolbar, "选择日期");
+        setToolBar(mToolbar, "选择日期-查看旧日报");
         mCalender.state().edit()
-                .setFirstDayOfWeek(Calendar.WEDNESDAY)
-                .setMinimumDate(CalendarDay.from(2013, 5, 20))
+                .setFirstDayOfWeek(Calendar.SUNDAY)
+                .setMinimumDate(CalendarDay.from(2015, 5, 20))
                 .setMaximumDate(CalendarDay.from(DateUtil.getCurrentYear(), DateUtil.getCurrentMonth(), DateUtil.getCurrentDay()))
                 .setCalendarDisplayMode(CalendarMode.MONTHS)
                 .commit();
@@ -48,15 +48,16 @@ public class CalendarActivity extends SimpleActivity {
             @Override
             public void onDateSelected(@NonNull MaterialCalendarView widget, @NonNull CalendarDay date, boolean selected) {
                 mDate = date;
+                RxBus.getDefault().post(mDate);
+                finish();
             }
         });
-        mCalender.setSelectedDate(CalendarDay.from(DateUtil.getCurrentYear(), DateUtil.getCurrentMonth(), DateUtil.getCurrentDay()));
 //        mCalender.setTileSize(88);
     }
 
-    @OnClick(R.id.tv_calender_enter)
+    /*@OnClick(R.id.tv_calender_enter)
     void chooseDate() {
         RxBus.getDefault().post(mDate);
         finish();
-    }
+    }*/
 }
