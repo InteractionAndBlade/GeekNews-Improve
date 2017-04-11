@@ -39,7 +39,9 @@ public interface FragmentComponent {
 
     void inject(HotFragment hotFragment);
 
-    void inject(InterNewsMainFragment longCommentFragment);
+    void inject(CommentFragment commentFragment);
+
+    void inject(InterNewsMainFragment interNewsMainFragment);
 
     void inject(TechFragment techFragment);
 

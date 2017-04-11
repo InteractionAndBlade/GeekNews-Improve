@@ -136,6 +136,10 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                         showFragment = Constants.TYPE_WECHAT;
                         mSearchMenuItem.setVisible(true);
                         break;
+                    case R.id.drawer_internews:
+                        showFragment = Constants.TYPE_INTER_NEWS;
+                        mSearchMenuItem.setVisible(true);
+                        break;
                     case R.id.drawer_gold:
                         showFragment = Constants.TYPE_GOLD;
                         mSearchMenuItem.setVisible(false);
@@ -269,6 +273,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 return R.id.drawer_gank;
             case Constants.TYPE_WECHAT:
                 return R.id.drawer_wechat;
+            case Constants.TYPE_INTER_NEWS:
+                return R.id.drawer_internews;
             case Constants.TYPE_GOLD:
                 return R.id.drawer_gold;
             case Constants.TYPE_VTEX:

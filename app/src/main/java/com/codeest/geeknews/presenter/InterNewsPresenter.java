@@ -13,6 +13,8 @@ import com.codeest.geeknews.widget.CommonSubscriber;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import rx.Observable;
 import rx.Subscription;
 import rx.functions.Func1;
@@ -29,6 +31,7 @@ public class InterNewsPresenter extends RxPresenter<InterNewsContract.View> impl
 
     private RetrofitHelper mRetrofitHelper;
 
+    @Inject
     public InterNewsPresenter(RetrofitHelper mRetrofitHelper) {
         this.mRetrofitHelper = mRetrofitHelper;
         registerEvent();

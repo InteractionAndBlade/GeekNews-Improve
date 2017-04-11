@@ -14,6 +14,11 @@
                 android:checkable="true"
                 android:title="@string/wechat"/>
             <item
+                android:id="@+id/drawer_internews"
+                android:icon="@mipmap/ic_drawer_internews"
+                android:checkable="true"
+                android:title="@string/internews"/>
+            <item
                 android:id="@+id/drawer_gank"
                 android:icon="@mipmap/ic_drawer_gank"
                 android:checkable="true"
