@@ -22,6 +22,7 @@ import com.codeest.geeknews.model.bean.WelcomeBean;
 import com.codeest.geeknews.model.bean.ZhihuDetailBean;
 import com.codeest.geeknews.model.http.api.GankApis;
 import com.codeest.geeknews.model.http.api.GoldApis;
+import com.codeest.geeknews.model.http.api.InterNewsApis;
 import com.codeest.geeknews.model.http.api.MyApis;
 import com.codeest.geeknews.model.http.api.VtexApis;
 import com.codeest.geeknews.model.http.api.WeChatApis;
@@ -46,15 +47,17 @@ public class RetrofitHelper {
     private MyApis mMyApiService;
     private GoldApis mGoldApiService;
     private VtexApis mVtexApiService;
+    private InterNewsApis mInterNewsApiService;
 
     public RetrofitHelper(ZhihuApis zhihuApiService, GankApis gankApiService, WeChatApis wechatApiService,
-                          MyApis myApiService, GoldApis goldApiService, VtexApis vtexApiService) {
+                          MyApis myApiService, GoldApis goldApiService, VtexApis vtexApiService, InterNewsApis mInterNewsApiService) {
         this.mZhihuApiService = zhihuApiService;
         this.mGankApiService = gankApiService;
         this.mWechatApiService = wechatApiService;
         this.mMyApiService = myApiService;
         this.mGoldApiService = goldApiService;
         this.mVtexApiService = vtexApiService;
+        this.mInterNewsApiService = mInterNewsApiService;
     }
 
     public Observable<DailyListBean> fetchDailyListInfo() {
@@ -127,6 +130,14 @@ public class RetrofitHelper {
 
     public Observable<WXHttpResponse<List<WXItemBean>>> fetchWechatSearchListInfo(int num, int page, String word) {
         return mWechatApiService.getWXHotSearch(Constants.KEY_API, num, page, word);
+    }
+
+    public Observable<WXHttpResponse<List<WXItemBean>>> fetchInterNewsListInfo(int num, int page) {
+        return mInterNewsApiService.getInterNewsSearch(Constants.KEY_API, num, page);
+    }
+
+    public Observable<WXHttpResponse<List<WXItemBean>>> fetchInterNewsSearchListInfo(int num, int page, String word) {
+        return mInterNewsApiService.getInterNewsSearch(Constants.KEY_API, num, page, word);
     }
 
     public Observable<MyHttpResponse<VersionBean>> fetchVersionInfo() {

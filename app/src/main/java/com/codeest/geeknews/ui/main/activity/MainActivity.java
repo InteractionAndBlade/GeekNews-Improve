@@ -24,6 +24,7 @@ import com.codeest.geeknews.presenter.MainPresenter;
 import com.codeest.geeknews.presenter.contract.MainContract;
 import com.codeest.geeknews.ui.gank.fragment.GankMainFragment;
 import com.codeest.geeknews.ui.gold.fragment.GoldMainFragment;
+import com.codeest.geeknews.ui.internews.fragment.InterNewsMainFragment;
 import com.codeest.geeknews.ui.main.fragment.AboutFragment;
 import com.codeest.geeknews.ui.main.fragment.LikeFragment;
 import com.codeest.geeknews.ui.main.fragment.SettingFragment;
@@ -62,6 +63,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     GankMainFragment mGankFragment;
     @Inject
     WechatMainFragment mWechatFragment;
+    @Inject
+    InterNewsMainFragment iNewsFragment;
     @Inject
     GoldMainFragment mGoldFragment;
     @Inject
@@ -116,7 +119,7 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
         mDrawerToggle.syncState();
         mDrawerLayout.addDrawerListener(mDrawerToggle);
         mLastMenuItem = mNavigationView.getMenu().findItem(R.id.drawer_zhihu);
-        loadMultipleRootFragment(R.id.fl_main_content,0,mZhihuFragment,mWechatFragment,mGankFragment,mGoldFragment,mVtexFragment,mLikeFragment,mSettingFragment,mAboutFragment);
+        loadMultipleRootFragment(R.id.fl_main_content,0,mZhihuFragment,mWechatFragment,mGankFragment,iNewsFragment,mGoldFragment,mVtexFragment,mLikeFragment,mSettingFragment,mAboutFragment);
         mNavigationView.setNavigationItemSelectedListener(new NavigationView.OnNavigationItemSelectedListener() {
             @Override
             public boolean onNavigationItemSelected(MenuItem menuItem) {
@@ -244,6 +247,8 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
                 return mWechatFragment;
             case Constants.TYPE_GOLD:
                 return mGoldFragment;
+            case Constants.TYPE_INTER_NEWS:
+                return iNewsFragment;
             case Constants.TYPE_VTEX:
                 return mVtexFragment;
             case Constants.TYPE_LIKE:

@@ -2,6 +2,7 @@ package com.codeest.geeknews.di.module;
 
 import com.codeest.geeknews.ui.gank.fragment.GankMainFragment;
 import com.codeest.geeknews.ui.gold.fragment.GoldMainFragment;
+import com.codeest.geeknews.ui.internews.fragment.InterNewsMainFragment;
 import com.codeest.geeknews.ui.main.fragment.AboutFragment;
 import com.codeest.geeknews.ui.main.fragment.LikeFragment;
 import com.codeest.geeknews.ui.main.fragment.SettingFragment;
@@ -67,5 +68,11 @@ public class PageModule {
     @Provides
     AboutFragment provideAboutMain() {
         return new AboutFragment();
+    }
+
+    @Singleton
+    @Provides
+    InterNewsMainFragment provideInterNewsMain(){
+        return new InterNewsMainFragment();
     }
 }

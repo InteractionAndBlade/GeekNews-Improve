@@ -4,12 +4,14 @@ import com.codeest.geeknews.BuildConfig;
 import com.codeest.geeknews.app.Constants;
 import com.codeest.geeknews.di.qualifier.GankUrl;
 import com.codeest.geeknews.di.qualifier.GoldUrl;
+import com.codeest.geeknews.di.qualifier.InterNewsUrl;
 import com.codeest.geeknews.di.qualifier.MyUrl;
 import com.codeest.geeknews.di.qualifier.VtexUrl;
 import com.codeest.geeknews.di.qualifier.WechatUrl;
 import com.codeest.geeknews.di.qualifier.ZhihuUrl;
 import com.codeest.geeknews.model.http.api.GankApis;
 import com.codeest.geeknews.model.http.api.GoldApis;
+import com.codeest.geeknews.model.http.api.InterNewsApis;
 import com.codeest.geeknews.model.http.api.MyApis;
 import com.codeest.geeknews.model.http.api.VtexApis;
 import com.codeest.geeknews.model.http.api.WeChatApis;
@@ -67,6 +69,13 @@ public class HttpModule {
     @WechatUrl
     Retrofit provideWechatRetrofit(Retrofit.Builder builder, OkHttpClient client) {
         return createRetrofit(builder, client, WeChatApis.HOST);
+    }
+
+    @Singleton
+    @Provides
+    @InterNewsUrl
+    Retrofit provideInterNewsRetrofit(Retrofit.Builder builder, OkHttpClient client){
+        return createRetrofit(builder, client, InterNewsApis.HOST);
     }
 
     @Singleton
@@ -176,6 +185,12 @@ public class HttpModule {
     @Provides
     WeChatApis provideWechatService(@WechatUrl Retrofit retrofit) {
         return retrofit.create(WeChatApis.class);
+    }
+
+    @Singleton
+    @Provides
+    InterNewsApis provideInterNewsService(@InterNewsUrl Retrofit retrofit){
+        return retrofit.create(InterNewsApis.class);
     }
 
     @Singleton

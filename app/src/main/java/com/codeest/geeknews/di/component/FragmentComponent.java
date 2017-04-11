@@ -8,6 +8,7 @@ import com.codeest.geeknews.ui.gank.fragment.GirlFragment;
 import com.codeest.geeknews.ui.gank.fragment.TechFragment;
 import com.codeest.geeknews.ui.gold.fragment.GoldMainFragment;
 import com.codeest.geeknews.ui.gold.fragment.GoldPagerFragment;
+import com.codeest.geeknews.ui.internews.fragment.InterNewsMainFragment;
 import com.codeest.geeknews.ui.main.fragment.LikeFragment;
 import com.codeest.geeknews.ui.main.fragment.SettingFragment;
 import com.codeest.geeknews.ui.vtex.fragment.VtexPagerFragment;
@@ -38,7 +39,7 @@ public interface FragmentComponent {
 
     void inject(HotFragment hotFragment);
 
-    void inject(CommentFragment longCommentFragment);
+    void inject(InterNewsMainFragment longCommentFragment);
 
     void inject(TechFragment techFragment);
 

@@ -8,6 +8,7 @@ import com.codeest.geeknews.model.db.RealmHelper;
 import com.codeest.geeknews.model.http.RetrofitHelper;
 import com.codeest.geeknews.ui.gank.fragment.GankMainFragment;
 import com.codeest.geeknews.ui.gold.fragment.GoldMainFragment;
+import com.codeest.geeknews.ui.internews.fragment.InterNewsMainFragment;
 import com.codeest.geeknews.ui.main.fragment.AboutFragment;
 import com.codeest.geeknews.ui.main.fragment.LikeFragment;
 import com.codeest.geeknews.ui.main.fragment.SettingFragment;
@@ -38,6 +39,8 @@ public interface AppComponent {
     GankMainFragment gankMainFragment();
 
     WechatMainFragment wechatMainFragment();
+
+    InterNewsMainFragment interNewsMainFragment();
 
     GoldMainFragment goldMainFragment();
 
