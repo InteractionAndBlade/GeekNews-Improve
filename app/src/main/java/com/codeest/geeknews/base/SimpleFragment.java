@@ -8,6 +8,8 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.codeest.geeknews.util.SharedPreferenceUtil;
+
 import butterknife.ButterKnife;
 import butterknife.Unbinder;
 import me.yokeyword.fragmentation.SupportFragment;
@@ -55,13 +57,17 @@ public abstract class SimpleFragment extends SupportFragment {
             }
         }
     }
-
+    private boolean isnightmode=false;
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
         if (!isInited && !hidden) {
             isInited = true;
             initEventAndData();
+        }
+        if(SharedPreferenceUtil.getNightModeState()!=isnightmode&&!hidden) {
+            initEventAndData();
+            isnightmode=SharedPreferenceUtil.getNightModeState();
         }
     }
 

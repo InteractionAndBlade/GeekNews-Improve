@@ -29,7 +29,7 @@ public class GankMainFragment extends SimpleFragment{
     ViewPager mViewPager;
 
     public static String[] tabTitle = new String[]{"Android","iOS","前端","福利"};
-    List<Fragment> fragments = new ArrayList<>();
+    List<Fragment> fragments;
 
     GankMainAdapter mAdapter;
     TechFragment androidFragment;
@@ -61,6 +61,7 @@ public class GankMainFragment extends SimpleFragment{
         webBundle.putInt(Constants.IT_GANK_TYPE_CODE, Constants.TYPE_WEB);
         webFragment.setArguments(webBundle);
 
+        fragments = new ArrayList<Fragment>();
         fragments.add(androidFragment);
         fragments.add(iOSFragment);
         fragments.add(webFragment);
@@ -69,6 +70,7 @@ public class GankMainFragment extends SimpleFragment{
         mViewPager.setAdapter(mAdapter);
 
         //TabLayout配合ViewPager有时会出现不显示Tab文字的Bug,需要按如下顺序
+        mTabLayout.removeAllTabs();
         mTabLayout.addTab(mTabLayout.newTab().setText(tabTitle[0]));
         mTabLayout.addTab(mTabLayout.newTab().setText(tabTitle[1]));
         mTabLayout.addTab(mTabLayout.newTab().setText(tabTitle[2]));
@@ -78,6 +80,11 @@ public class GankMainFragment extends SimpleFragment{
         mTabLayout.getTabAt(1).setText(tabTitle[1]);
         mTabLayout.getTabAt(2).setText(tabTitle[2]);
         mTabLayout.getTabAt(3).setText(tabTitle[3]);
+    }
+    @Override
+    public void onHiddenChanged(boolean hidden){
+        super.onHiddenChanged(hidden);
+
     }
 
     public void doSearch(String query) {

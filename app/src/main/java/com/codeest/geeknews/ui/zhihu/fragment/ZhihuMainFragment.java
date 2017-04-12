@@ -7,6 +7,7 @@ import android.support.v4.view.ViewPager;
 import com.codeest.geeknews.R;
 import com.codeest.geeknews.base.SimpleFragment;
 import com.codeest.geeknews.ui.zhihu.adapter.ZhihuMainAdapter;
+import com.codeest.geeknews.util.SharedPreferenceUtil;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -14,7 +15,8 @@ import java.util.List;
 import butterknife.BindView;
 
 /**
- * Created by codeest on 16/8/11.
+ * Created by codeest on 16/8
+ * /11.
  */
 
 public class ZhihuMainFragment extends SimpleFragment{
@@ -25,7 +27,7 @@ public class ZhihuMainFragment extends SimpleFragment{
     ViewPager mViewPager;
 
     String[] tabTitle = new String[]{"日报","主题","专栏","热门"};
-    List<Fragment> fragments = new ArrayList<Fragment>();
+    List<Fragment> fragments;
 
     ZhihuMainAdapter mAdapter;
 
@@ -36,14 +38,15 @@ public class ZhihuMainFragment extends SimpleFragment{
 
     @Override
     protected void initEventAndData() {
+        fragments = new ArrayList<>();
         fragments.add(new DailyFragment());
         fragments.add(new ThemeFragment());
         fragments.add(new SectionFragment());
         fragments.add(new HotFragment());
         mAdapter = new ZhihuMainAdapter(getChildFragmentManager(),fragments);
         mViewPager.setAdapter(mAdapter);
-
         //TabLayout配合ViewPager有时会出现不显示Tab文字的Bug,需要按如下顺序
+        mTabLayout.removeAllTabs();
         mTabLayout.addTab(mTabLayout.newTab().setText(tabTitle[0]));
         mTabLayout.addTab(mTabLayout.newTab().setText(tabTitle[1]));
         mTabLayout.addTab(mTabLayout.newTab().setText(tabTitle[2]));

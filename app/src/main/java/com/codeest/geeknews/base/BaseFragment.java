@@ -12,6 +12,7 @@ import com.codeest.geeknews.app.App;
 import com.codeest.geeknews.di.component.DaggerFragmentComponent;
 import com.codeest.geeknews.di.component.FragmentComponent;
 import com.codeest.geeknews.di.module.FragmentModule;
+import com.codeest.geeknews.util.SharedPreferenceUtil;
 
 import javax.inject.Inject;
 
@@ -76,13 +77,17 @@ public abstract class BaseFragment<T extends BasePresenter> extends SupportFragm
             }
         }
     }
-
+    private boolean isnightmode=false;
     @Override
     public void onHiddenChanged(boolean hidden) {
         super.onHiddenChanged(hidden);
         if (!isInited && !hidden) {
             isInited = true;
             initEventAndData();
+        }
+        if(SharedPreferenceUtil.getNightModeState()!=isnightmode&&!hidden) {
+            initEventAndData();
+            isnightmode=SharedPreferenceUtil.getNightModeState();
         }
     }
 

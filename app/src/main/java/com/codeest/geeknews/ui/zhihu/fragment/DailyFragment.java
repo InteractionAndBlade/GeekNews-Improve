@@ -60,6 +60,7 @@ public class DailyFragment extends BaseFragment<DailyPresenter> implements Daily
 
     @Override
     protected void initEventAndData() {
+        System.out.println("dailyadding........");
         currentDate = DateUtil.getTomorrowDate();
         mAdapter = new DailyAdapter(mContext,mList);
         mAdapter.setOnItemClickListener(new DailyAdapter.OnItemClickListener() {

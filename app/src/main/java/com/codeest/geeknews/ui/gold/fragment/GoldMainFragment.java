@@ -37,7 +37,7 @@ public class GoldMainFragment extends BaseFragment<GoldMainPresenter> implements
     public static String[] typeStr = {"Android", "iOS", "前端", "后端", "设计", "产品", "阅读", "工具资源"};
     public static String[] type = {"android", "ios", "frontend", "backend", "design", "product", "article", "freebie"};
 
-    List<GoldPagerFragment> fragments = new ArrayList<>();
+    List<GoldPagerFragment> fragments;
     private int currentIndex = 0;
 
     @Override
@@ -59,6 +59,7 @@ public class GoldMainFragment extends BaseFragment<GoldMainPresenter> implements
 
     @Override
     public void updateTab(List<GoldManagerItemBean> mList) {
+        fragments = new ArrayList<>();
         fragments.clear();
         mTabLayout.removeAllTabs();
         for (GoldManagerItemBean item : mList) {

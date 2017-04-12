@@ -312,4 +312,9 @@ public class MainActivity extends BaseActivity<MainPresenter> implements MainCon
     public void checkPermissions() {
         mPresenter.checkPermissions(new RxPermissions(this));
     }
+
+    @Override
+    protected void onSaveInstanceState(Bundle outState) {
+        //主页面状态不保存
+    }
 }

@@ -105,4 +105,10 @@ public class WechatMainFragment extends BaseFragment<WechatPresenter> implements
         }
         SnackbarUtil.showShort(rvWechatList,msg);
     }
+
+    @Override
+    public void onHiddenChanged(boolean hidden){
+
+        super.onHiddenChanged(hidden);
+    }
 }

@@ -31,7 +31,7 @@ public class VtexMainFragment extends SimpleFragment {
     public static String[] typeStr = {"技术", "创意", "好玩", "Apple", "酷工作", "交易", "城市", "问与答", "最热", "全部", "R2"};
     public static String[] type = {"tech", "creative", "play", "apple", "jobs", "deals", "city", "qna", "hot", "all", "r2"};
 
-    List<VtexPagerFragment> fragments = new ArrayList<>();
+    List<VtexPagerFragment> fragments;
 
     @Override
     protected int getLayoutId() {
@@ -42,6 +42,7 @@ public class VtexMainFragment extends SimpleFragment {
     protected void initEventAndData() {
         mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         mTabLayout.setupWithViewPager(mViewPager);
+        fragments = new ArrayList<>();
         for (int i = 0; i < type.length; i++) {
             VtexPagerFragment fragment = new VtexPagerFragment();
             Bundle bundle = new Bundle();
